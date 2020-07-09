@@ -1,4 +1,4 @@
-# technitium-dns
+# technitium-dns-windows
 ## Docker container build for the Technitium DNS Server
 > To modify properties change build.config.ps1
 >
