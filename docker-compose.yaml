@@ -1,12 +1,12 @@
-version: '3.3'
+version: '3.5'
 services:
     technitium-dns:
         hostname: tdns
         user: ContainerAdministrator
         network_mode: External
         volumes:
-            - 'E:\Docker\technitium-dns\config:C:\app\config'
-            - 'E:\Docker\technitium-dns\certs:C:\certs'
+            - 'X:\technitium-dns\config:C:\app\config'
+            - 'X:\technitium-dns\certs:C:\certs'
         restart: always
         image: 'cspeers/technitium-dns:latest'
         mac_address: 00:15:33:12:33:33
