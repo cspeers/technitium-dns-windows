@@ -7,7 +7,7 @@ services:
         volumes:
             - 'X:\technitium-dns\config:C:\app\config'
             - 'X:\technitium-dns\certs:C:\certs'
-        restart: always
+        restart: unless-stopped
         image: 'cspeers/technitium-dns:latest'
         mac_address: 00:15:33:12:33:33
 networks:
