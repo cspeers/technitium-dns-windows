@@ -3,8 +3,6 @@ FROM ${BASE_IMAGE}
 
 LABEL maintainer="cspeers"
 ARG INSTALL_URL="https://download.technitium.com/dns/DnsServerPortable.tar.gz"
-ARG HEALTH_ADDRESS="google.com"
-ENV HEALTH_ADDRESS=${HEALTH_ADDRESS}
 
 RUN md C:\temp
 RUN md C:\App
@@ -28,5 +26,5 @@ VOLUME [ "C:/certs" ]
 
 ENTRYPOINT ["dotnet", "DnsServerApp.dll"]
 
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD pwsh -Command Test-Connection $env:HEALTH_ADDRESS -ResolveDestination
+HEALTHCHECK --interval=60s --timeout=30s --start-period=10s --retries=3 CMD pwsh -Command {Invoke-RestMethod "http://$($ENV:COMPUTERNAME):5380"}
 

@@ -1,6 +1,7 @@
 version: '3.5'
 services:
     technitium-dns:
+        container_name: technitium_dns
         hostname: tdns
         user: ContainerAdministrator
         network_mode: External
