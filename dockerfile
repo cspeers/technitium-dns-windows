@@ -4,11 +4,13 @@ FROM ${BASE_IMAGE}
 LABEL maintainer="cspeers"
 ARG INSTALL_URL="https://download.technitium.com/dns/DnsServerPortable.tar.gz"
 
+
 RUN md C:\temp
 RUN md C:\App
 RUN md C:\certs
 
 WORKDIR C:/Temp
+
 ADD ${INSTALL_URL} install.tar.gz
 RUN tar.exe -zxvf install.tar.gz -C C:\App
 
@@ -26,5 +28,5 @@ VOLUME [ "C:/certs" ]
 
 ENTRYPOINT ["dotnet", "DnsServerApp.dll"]
 
-HEALTHCHECK --interval=60s --timeout=30s --start-period=10s --retries=3 CMD pwsh -Command {Invoke-RestMethod "http://$($ENV:COMPUTERNAME):5380"}
+#HEALTHCHECK --interval=60s --timeout=30s --start-period=10s --retries=3 CMD pwsh -Command {Invoke-RestMethod "http://$($ENV:COMPUTERNAME):5380"}
 
