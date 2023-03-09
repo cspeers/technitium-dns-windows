@@ -1,5 +1,5 @@
-ARG BASE_IMAGE="mcr.microsoft.com/dotnet/core/sdk:3.1"
-FROM ${BASE_IMAGE}
+ARG BASE_IMAGE=mcr.microsoft.com/dotnet/sdk:5.0
+FROM $BASE_IMAGE
 
 LABEL maintainer="cspeers"
 ARG INSTALL_URL="https://download.technitium.com/dns/DnsServerPortable.tar.gz"
